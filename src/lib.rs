@@ -1,3 +1,10 @@
+#[macro_use]
+extern crate sea_orm;
+#[macro_use]
+extern crate async_trait;
+#[macro_use]
+extern crate serde;
+
 mod app;
 
 #[cfg(test)]

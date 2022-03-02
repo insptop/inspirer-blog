@@ -2,3 +2,5 @@
 
 pub use super::content_entities::Entity as ContentEntities;
 pub use super::contents::Entity as Contents;
+pub use super::contents;
+pub use super::content_entities;
