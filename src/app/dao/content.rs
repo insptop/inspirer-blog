@@ -2,7 +2,7 @@ use inspirer_foundation::{component::database::Dao, Result};
 use sea_orm::{ColumnTrait, ConnectionTrait, EntityTrait, QueryFilter, QueryOrder, PaginatorTrait};
 use futures_util::TryFutureExt;
 
-use crate::app::model::{prelude::*, common::{Paginate, Paginated}, contents::ContentType};
+use crate::app::entity::{prelude::*, common::{Paginate, Paginated}, contents::ContentType};
 
 #[async_trait]
 pub trait ContentDao {
