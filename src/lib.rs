@@ -5,7 +5,7 @@ extern crate async_trait;
 #[macro_use]
 extern crate serde;
 
-mod app;
+pub mod app;
 
 #[cfg(test)]
 mod tests {

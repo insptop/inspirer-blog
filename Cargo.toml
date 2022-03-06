@@ -3,9 +3,15 @@ name = "blog"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "inspirer-blog"
+path = "src/bin/main.rs"
+
 [dependencies]
 async-trait = "0.1.52"
 sea-orm = {version = "0.6.0", default-features = false, features = ["sqlx-mysql", "runtime-tokio-rustls", "macros"]}
 inspirer-foundation = {path = "../../inspirer-foundation"}
 futures-util = "0.3.21"
 serde = { version = "1.0.136", features = ["derive"] }
+axum = "0.4.8"
+tokio = { version = "1.17.0", features = ["rt", "macros"] }
