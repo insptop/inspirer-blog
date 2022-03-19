@@ -1,12 +1,15 @@
 use axum::extract::Extension;
-use inspirer_foundation::axum::app::App;
+use inspirer_foundation::axum::app::{App, run_standard_cli_app};
+use inspirer_foundation::Result;
 use sea_orm::Database;
 
-#[tokio::main]
-async fn main() {
-    let router = blog::app::controller::http::routes();
-    
-    App {
-        router: router.layer(Extension(Database::connect("mysql://root:root@localhost/inspirer_blog").await.unwrap()))
-    }.run().await;
+fn main() -> Result<()> {
+    run_standard_cli_app("inspirer-blog", App::new(|config| async move {
+        let router = blog::app::controller::http::routes();
+        Ok(router.layer(Extension(
+            Database::connect(config.get_string("database.connection")?.as_str())
+                .await
+                .unwrap(),
+        )))
+    }))
 }
