@@ -27,7 +27,7 @@ impl ServiceProvider for ContentService {
 }
 
 lazy_static! {
-    static ref CONTENT_NUMBER_INDEX_REGEX: Regex = Regex::new("\\d+").unwrap();
+    static ref CONTENT_NUMBER_INDEX_REGEX: Regex = Regex::new("^\\d+$").unwrap();
 }
 
 pub enum ContentIndex {
